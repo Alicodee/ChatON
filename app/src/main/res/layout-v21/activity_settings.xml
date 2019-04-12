@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:weightSum="4">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme"
+        app:elevation="0dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Settings"
+
+            app:titleTextColor="@color/accent"
+            android:background="@color/primary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/ic_back"
+                    android:background="@drawable/ripple"
+                    android:clickable="true"
+                    android:focusable="true" />
+                <TextView
+                    android:id="@+id/activtiyname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:gravity="center"
+                    android:text="Profile"
+                    android:textColor="@color/accent"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                    android:layout_toEndOf="@+id/back"/>
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/logout_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:background="@drawable/ripple"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/ic_logout" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="3.0">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:transitionName="@string/transition_string"
+                    android:src="@drawable/ic_circle">
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/edit_image"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:padding="7dp"
+                    android:background="@drawable/rounded_chat_rec"
+                    android:layout_gravity="bottom|right"
+                    android:layout_marginBottom="9dp"
+                    android:layout_marginRight="9dp"
+                    android:onClick="pickImage"
+                    android:src="@drawable/ic_edit_camera"
+                    />
+
+
+            </FrameLayout>
+            <ProgressBar
+                android:id="@+id/pbImageLoading"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                style="?android:attr/progressBarStyleSmall"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:background="@drawable/ripple"
+       android:clickable="true"
+       android:focusable="true"
+      >
+       <TextView
+           android:id="@+id/nameTitle"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Name"
+           android:textColor="@color/primary_text"
+           android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+           android:paddingLeft="12dp"/>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@drawable/ripple"
+           android:clickable="true"
+           android:focusable="true"
+           android:orientation="horizontal"
+           android:weightSum="2"
+           android:padding="16dp">
+
+           <TextView
+               android:id="@+id/name"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="@string/app_name"
+               android:textColor="@color/secondary_text"
+               android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+               android:layout_weight="1.8"/>
+           <ImageView
+               android:id="@+id/editName"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:background="@drawable/ripple"
+               android:src="@drawable/ic_edit"
+               android:layout_weight="0.2"
+               android:clickable="true"/>
+       </LinearLayout>
+   </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="0.2"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/noteTitle"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/secondary_text"
+            android:text="This is only your username. This name will not be visible to your ChatON contacts."/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        android:layout_weight="0.3"
+        android:weightSum="5"
+        >
+        <TextView
+            android:id="@+id/emailTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="About and email"
+            android:background="#ffffff"
+            android:textColor="@color/primary_text"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:weightSum="2"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ALLAH ALMIGHTY "
+                android:textColor="@color/secondary_text"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                android:layout_weight="1.8"
+                android:layout_gravity="center" />
+            <ImageView
+                android:id="@+id/editAbout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_edit"
+                android:background="@drawable/ripple"
+                android:layout_weight="0.2"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="#bebebe"
+            android:layout_marginStart="14dp" />
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_weight="2"
+           android:orientation="horizontal"
+           android:clickable="true"
+           android:focusable="true"
+           android:background="@drawable/ripple"
+           android:padding="16dp">
+
+           <TextView
+               android:id="@+id/email"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textIsSelectable="true"
+               android:layout_gravity="center"
+               android:text="alihamza000767@gmail.com "
+               android:textColor="@color/secondary_text"
+               android:textAppearance="@style/Base.TextAppearance.AppCompat.Small" />
+
+
+       </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
